@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Guy Fawkes</title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #252525;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    h1 {
+      font-size: 2em;
+      color: #fff;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    section {
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #333;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      max-width: 80%;
+    }
+
+    video {
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Power comes from faith</h1>
+  <section>
+    <video id="video1" controls>
+      <source src="v-1.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </section>
+  <section>
+    <video id="video2" controls>
+      <source src="v-2.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </section>
+  <section>
+    <video id="video3" controls>
+      <source src="v-3.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </section>
+
+  <script>
+    const videos = document.querySelectorAll('video');
+
+    videos.forEach(video => {
+      video.addEventListener('play', (event) => {
+        videos.forEach(otherVideo => {
+          if (otherVideo !== event.target) {
+            otherVideo.pause();
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
